@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "ClauseSentinel",
+  "version": "0.1.0",
+  "description": "Scans terms, privacy policies and agreements for data, privacy, and security hazards. Not legal advice.",
+  "default_locale": "en",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "clausesentinel@clausesentinel.app",
+      "strict_min_version": "121.0"
+    }
+  },
+  "action": {
+    "default_popup": "popup/index.html",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+  "background": {
+    "scripts": ["background/index.js"],
+    "type": "module"
+  },
+  "permissions": ["activeTab", "scripting", "storage"],
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "options_ui": {
+    "page": "options/index.html",
+    "browser_style": false
+  }
+}

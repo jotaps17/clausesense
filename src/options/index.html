@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClauseSentinel — Settings</title>
+  <style>
+    :root {
+      --primary: #1e3a5f;
+      --text: #1a202c;
+      --text-secondary: #4a5568;
+      --border: #e2e8f0;
+      --surface: #f5f7fa;
+      --radius: 6px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary: #4299e1;
+        --text: #f7fafc;
+        --text-secondary: #a0aec0;
+        --border: #4a5568;
+        --surface: #2d3748;
+      }
+      body { background: #1a202c; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+    h1 { font-size: 22px; color: var(--primary); margin-bottom: 4px; }
+    .subtitle { color: var(--text-secondary); font-size: 13px; margin-bottom: 32px; }
+    .field { margin-bottom: 20px; }
+    label { display: block; font-weight: 600; margin-bottom: 6px; }
+    select, input[type="number"] {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 14px;
+      background: var(--surface);
+      color: var(--text);
+    }
+    .btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+    .btn-danger {
+      background: #c53030;
+      margin-top: 24px;
+    }
+    .saved-msg {
+      color: #38a169;
+      font-size: 13px;
+      margin-top: 8px;
+      display: none;
+    }
+    hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+    .disclaimer {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      background: var(--surface);
+      padding: 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .disclaimer strong { color: #c53030; }
+  </style>
+</head>
+<body>
+  <h1>ClauseSentinel</h1>
+  <p class="subtitle">Settings — analysis is local only, nothing leaves your device.</p>
+
+  <div class="field">
+    <label for="language">Interface language</label>
+    <select id="language">
+      <option value="en">English</option>
+      <option value="pt">Português (BR)</option>
+      <option value="es">Español</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="theme">Theme</label>
+    <select id="theme">
+      <option value="system">System default</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="verbosity">Report detail level</label>
+    <select id="verbosity">
+      <option value="compact">Compact</option>
+      <option value="full">Full</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="maxReports">Stored reports (max)</label>
+    <input type="number" id="maxReports" min="1" max="20" value="5" />
+  </div>
+
+  <button class="btn" id="save">Save settings</button>
+  <span class="saved-msg" id="savedMsg">Saved!</span>
+
+  <hr />
+
+  <button class="btn btn-danger" id="clearReports">Clear all stored reports</button>
+  <span class="saved-msg" id="clearedMsg" style="color:#c53030">Reports cleared.</span>
+
+  <hr />
+
+  <div class="disclaimer">
+    <strong>This is not legal advice.</strong> ClauseSentinel surfaces patterns in publicly visible
+    text for your awareness only. Its output is not a legal opinion and should not be relied upon
+    as a substitute for consultation with a qualified lawyer.
+  </div>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>
